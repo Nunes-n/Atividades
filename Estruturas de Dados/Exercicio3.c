@@ -1,3 +1,9 @@
+/*OBJETIVOS:
+	-Implementar listas encadeadas simples, permitindo ao usuário inserir némeros reais positivos em duas listas separadas e, a partir delas, criar uma terceira lista que é uma concatenação das duas listas;
+	-A terceira lista deve ter os elementos da segunda lista e em seguida os elementos da primeira;
+	-Após a criação da terceira lista, destruir as duas primeiras e então imprimi-la;
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -154,4 +160,5 @@ void ImprimeLista (TLista *lista)
 			aux = aux->prox;
 		}
 	}
+
 }
