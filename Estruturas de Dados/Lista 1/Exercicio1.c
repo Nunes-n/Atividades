@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 		struct itens {char nome[26]; float qtde; int comprado; struct itens *prox, *ant;};
 typedef struct itens TItem;
@@ -8,11 +9,14 @@ typedef struct {TItem *inicio, *final; int qtdeItens, qtdeComprados;} TLista;
 TLista lista;
 
 void iniciaLista (TLista *);
-int IncluiItem (TLista *, char, float);
+int IncluiItem (TLista *, char *, float);
+void ImprimeLista (TLista *, char);
 
 int main(void)
 {
-	char operacao = NULL, nome[26];
+	char operacao = ' ';
+	char op;
+	char nome[26];
 	float qtde;
 	
 	iniciaLista(&lista);
@@ -26,7 +30,11 @@ int main(void)
 			scanf ("%s %f", nome, &qtde);
 			if (IncluiItem(&lista, nome, qtde) == 1)
 			{
-				printf ("\nErro fatal: memoria insuficiente");
+				printf ("\nErro fatal: memoria insuficiente\n");
+			}
+			else
+			{
+				printf ("\nIncluiu %s\n", nome);
 			}
 		}
 		else
@@ -42,10 +50,14 @@ int main(void)
 				else
 					if (operacao == 'P' || operacao == 'p')
 					{
-						return 0;
+						scanf (" %c", &op);
+						ImprimeLista (&lista, op);
 					}
 					else
-						printf ("\nOperacao invalida");
+					{
+						if (operacao != '*')
+							printf ("\nOperacao invalida\n");
+					}
 	}
 	
 	return 0;
@@ -64,7 +76,7 @@ void iniciaLista (TLista *lista)
 	lista->qtdeComprados = 0;
 }
 
-int IncluiItem (TLista *lista, char nome[26], float qtde)
+int IncluiItem (TLista *lista, char *nome, float qtde)
 {
 	TItem *aux;
 	
@@ -75,7 +87,7 @@ int IncluiItem (TLista *lista, char nome[26], float qtde)
 		return 1;
 	}
 	
-	strcopy(aux->nome, nome);
+	strcpy(aux->nome, nome);
 	aux->qtde = qtde;
 	aux->comprado = 0;
 	aux->prox = NULL;
@@ -88,8 +100,87 @@ int IncluiItem (TLista *lista, char nome[26], float qtde)
 	}
 	else
 	{
-		lista->final->prox = aux; //ainda nao sei
+		TItem *cmp = lista->inicio;
+		
+		if (strcmp(aux->nome, cmp->nome) < 0)
+		{
+			//esta no inicio
+			aux->prox = cmp;
+			aux->ant = NULL;
+			cmp->ant = aux;
+			lista->inicio = aux;
+		}
+		else
+		{
+			while (cmp->prox != NULL && strcmp(aux->nome, cmp->prox->nome) > 0)
+			{
+				cmp = cmp->prox;
+			}
+			
+			if (cmp->prox == NULL)
+			{
+				//esta no final
+				aux->prox = NULL;
+				aux->ant = cmp;
+				cmp->prox = aux;
+				lista->final = aux;
+			}
+			else
+			{
+				//esta no meio
+				aux->prox = cmp->prox;
+				aux->ant = cmp;
+				cmp->prox->ant = aux;
+				cmp->prox = aux;
+			}
+		}
 	}
 	
+	lista->qtdeItens += 1;
+	
 	return 0;
+}
+
+void ImprimeLista (TLista *lista, char op)
+{
+	TItem *aux;
+	
+	if (lista->inicio == NULL)
+	{
+		printf ("\nLista Vazia");
+	}
+	else
+	{
+		if (op == 'f' || op == 'F')
+		{
+			printf ("\nLista de compras (do inicio):");
+			
+			aux = lista->inicio;
+			while (aux != NULL)
+			{
+				printf ("\n%s %.2f %d", aux->nome, aux->qtde, aux->comprado);
+				aux = aux->prox;
+			}
+		}
+		else
+		{
+			if (op == 'r' || op == 'R')
+			{
+				printf ("\nLista de compras (do final)");
+				
+				aux = lista->final;
+				while (aux != NULL)
+				{
+					printf ("\n%s %.2f %d", aux->nome, aux->qtde, aux->comprado);
+					aux = aux->ant;
+				}
+			}
+			else
+			{
+				printf ("\nOperacao invalida");
+			}
+		}
+		
+		printf ("\n");
+	}
 }
