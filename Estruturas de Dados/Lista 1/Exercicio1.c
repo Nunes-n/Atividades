@@ -11,6 +11,7 @@ TLista lista;
 void iniciaLista (TLista *);
 int IncluiItem (TLista *, char *, float);
 void ImprimeLista (TLista *, char);
+int AtualizaItem (TLista *, char *);
 
 int main(void)
 {
@@ -40,7 +41,15 @@ int main(void)
 		else
 			if (operacao == 'A' || operacao == 'a')
 			{
-				return 0;
+				scanf ("%s", nome);
+				if (AtualizaItem(&lista, nome) == 1)
+				{
+					printf ("\nItem nao encontrado");
+				}
+				else
+				{
+					printf ("\nAtualizou %s", nome);
+				}
 			}
 			else
 				if (operacao == 'X' || operacao == 'x')
@@ -182,5 +191,25 @@ void ImprimeLista (TLista *lista, char op)
 		}
 		
 		printf ("\n");
+	}
+}
+
+int AtualizaItem (TLista *lista, char *nome)
+{
+	TItem *aux = lista->inicio;
+	
+	while (aux != NULL && aux->nome != nome)
+	{
+		aux = aux->prox;
+	}
+	
+	if (aux == NULL)
+	{
+		return 1;
+	}
+	else
+	{
+		aux->comprado = 1;
+		return 0;
 	}
 }
