@@ -24,31 +24,38 @@ int main(void)
 	
 	while (operacao != '*')
 	{
+		printf ("Digite a operacao: ");
 		scanf (" %c", &operacao);
 		
 		if (operacao == 'I' || operacao == 'i')
 		{
+			printf ("Digite o nome e quantidade do produto: ");
 			scanf ("%s %f", nome, &qtde);
 			if (IncluiItem(&lista, nome, qtde) == 1)
 			{
-				printf ("\nErro fatal: memoria insuficiente\n");
+				printf ("\nErro fatal: memoria insuficiente\n\n");
 			}
 			else
 			{
-				printf ("\nIncluiu %s\n", nome);
+				printf ("\nIncluiu %s\n\n", nome);
 			}
 		}
 		else
 			if (operacao == 'A' || operacao == 'a')
 			{
+				printf ("Digite o nome do produto: ");
 				scanf ("%s", nome);
-				if (AtualizaItem(&lista, nome) == 1)
+				int retorno = AtualizaItem(&lista, nome);
+				if (retorno == 1)
 				{
-					printf ("\nItem nao encontrado");
+					printf ("\nItem nao encontrado\n\n");
 				}
 				else
 				{
-					printf ("\nAtualizou %s", nome);
+					if (retorno == 2)
+						printf ("\nErro: %s ja foi comprado\n\n", nome);
+					else
+						printf ("\nComprou %s\n\n", nome);
 				}
 			}
 			else
@@ -59,13 +66,14 @@ int main(void)
 				else
 					if (operacao == 'P' || operacao == 'p')
 					{
+						printf ("Digite o tipo de impressao: ");
 						scanf (" %c", &op);
 						ImprimeLista (&lista, op);
 					}
 					else
 					{
 						if (operacao != '*')
-							printf ("\nOperacao invalida\n");
+							printf ("\nOperacao invalida\n\n");
 					}
 	}
 	
@@ -190,7 +198,7 @@ void ImprimeLista (TLista *lista, char op)
 			}
 		}
 		
-		printf ("\n");
+		printf ("\n\n");
 	}
 }
 
@@ -198,7 +206,7 @@ int AtualizaItem (TLista *lista, char *nome)
 {
 	TItem *aux = lista->inicio;
 	
-	while (aux != NULL && aux->nome != nome)
+	while (aux != NULL && strcmp(aux->nome, nome) != 0)
 	{
 		aux = aux->prox;
 	}
@@ -209,7 +217,15 @@ int AtualizaItem (TLista *lista, char *nome)
 	}
 	else
 	{
-		aux->comprado = 1;
-		return 0;
+		if (aux->comprado == 1)
+		{
+			return 2;
+		}
+		else
+		{
+			aux->comprado = 1;
+			lista->qtdeComprados += 1;
+			return 0;
+		}
 	}
 }
