@@ -12,6 +12,7 @@ void iniciaLista (TLista *);
 int IncluiItem (TLista *, char *, float);
 void ImprimeLista (TLista *, char);
 int AtualizaItem (TLista *, char *);
+int ExcluiItem(TLista *, char *);
 
 int main(void)
 {
@@ -61,7 +62,16 @@ int main(void)
 			else
 				if (operacao == 'X' || operacao == 'x')
 				{
-					return 0;
+					printf ("Digite o nome do produto: ");
+					scanf ("%s", nome);
+					if (ExcluiItem(&lista, nome) == 1)
+					{
+						printf ("\nProduto nao encontrado\n");
+					}
+					else
+					{
+						printf ("\n%s foi excluido\n", nome);
+					}
 				}
 				else
 					if (operacao == 'P' || operacao == 'p')
@@ -164,7 +174,7 @@ void ImprimeLista (TLista *lista, char op)
 	
 	if (lista->inicio == NULL)
 	{
-		printf ("\nLista Vazia");
+		printf ("\nLista Vazia\n");
 	}
 	else
 	{
@@ -227,5 +237,58 @@ int AtualizaItem (TLista *lista, char *nome)
 			lista->qtdeComprados += 1;
 			return 0;
 		}
+	}
+}
+
+int ExcluiItem(TLista *lista, char *nome)
+{	TItem *aux;
+
+	aux = lista->inicio;
+	while (aux != NULL && strcmp(aux->nome,nome) != 0)
+	{	
+		aux = aux->prox;
+	}
+	
+	if (aux == NULL)
+	{
+		return 1;
+	}
+	else
+	{	
+		if (aux->ant == NULL) //é o primeiro
+		{
+			lista->inicio = aux->prox;
+			if (aux->prox == NULL) // é também o ultimo: lista fica vazia
+			{
+				lista->final = NULL;
+			}
+			else
+			{
+				aux->prox->ant = NULL;
+			}
+		}
+		else
+		{
+			if (aux->prox == NULL) // é o ultimo
+			{
+				lista->final = aux->ant;
+				aux->ant->prox = NULL;
+			}
+			else //está no meio
+			{
+				aux->ant->prox = aux->prox;
+				aux->prox->ant = aux->ant;
+			}
+		}
+		
+		lista->qtdeItens -= 1;
+		if (aux->comprado == 1)
+		{
+			lista->qtdeComprados -= 1;
+		}
+		
+		free(aux);
+		
+		return 0;
 	}
 }
