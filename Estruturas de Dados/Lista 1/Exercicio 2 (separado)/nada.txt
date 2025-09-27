@@ -1,0 +1,1 @@
+o programa funciona da mesma maneira que o exercicio 1, porém implementado por contiguidade, com limite de 50.
