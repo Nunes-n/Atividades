@@ -9,3 +9,4 @@ int IncluiItem (TLista *, char *, float);
 void ImprimeLista (TLista *, char);
 int AtualizaItem (TLista *, char *);
 int ExcluiItem(TLista *, char *);
+void EncerraPrograma(TLista *);
