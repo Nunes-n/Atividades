@@ -59,7 +59,7 @@ int main(void)
 					}
 					else
 					{
-						printf ("\n%s foi excluido\n", nome);
+						printf ("\nExcluiu %s\n\n", nome);
 					}
 				}
 				else
@@ -75,6 +75,8 @@ int main(void)
 							printf ("\nOperacao invalida\n\n");
 					}
 	}
+	
+	EncerraPrograma(&lista);
 	
 	return 0;
 }
