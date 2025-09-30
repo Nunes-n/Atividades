@@ -79,6 +79,8 @@ void ImprimeLista (TLista *lista, char op)
 			}
 		}
 		
+		printf ("\nTotal itens: %d Itens comprados: %d", lista->qtdeItens, lista->qtdeComprados);
+		
 		printf ("\n\n");
 	}
 }
@@ -137,4 +139,13 @@ int ExcluiItem(TLista *lista, char *nome)
 	}
 	
 	return 0;
+}
+
+void EncerraPrograma(TLista *lista)
+{
+	int itensF;
+	
+	itensF = lista->qtdeItens - lista->qtdeComprados;
+	
+	printf ("\nFim do programa (%d itens sem comprar)", itensF);
 }
