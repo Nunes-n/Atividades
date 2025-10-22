@@ -1,3 +1,14 @@
+/* Faça um programa que recebe os detalhes da venda de produtos e determina o valor da venda. 
+Cada produto tem um código numérico do tipo inteiro, uma descrição de até 20 caracteres, a 
+unidade de medida (que pode ser UN, KG, LT ou MT), a quantidade disponível em estoque (é 
+um inteiro se a unidade de medida for UN e é um real nos outros casos) e o preço unitário 
+correspondente. Criar um array que permita armazenar os dados de 25 produtos e carregar esse 
+array com dados. Em seguida, receber os detalhes de uma venda (código e quantidade de cada 
+produto vendido naquela transação e imprimir o valor total da venda). Usar uma struct para 
+descrever o produto, uma enum para as unidades de medida e uma union para a quantidade 
+do produto. */
+//por limites de tempo, fiz com apenas 5 produtos
+
 #include <stdio.h>
 #include <string.h>
 #define MAX 25
@@ -129,4 +140,5 @@ int main(void)
 	printf ("\nPreco total da venda: %.2f", precoTotal);
 	
 	return 0;
+
 }
