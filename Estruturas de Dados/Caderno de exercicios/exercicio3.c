@@ -1,5 +1,32 @@
-#include <stdio.h>
+/*
+Fazer um programa que define um tipo de dados para cliente, considerando as especificações 
+a seguir, e: 
+a) Declara uma variável desse tipo. 
+b) Recebe os dados de um cliente informado pelo usuário 
+c) Exibe os dados informados na tela. 
+O item de dado para indicar o tipo do cliente ('P' para pessoa, 'E' para empresa) é uma 
+enumeração. Não é possível um cliente ser simultaneamente “pessoa” e “empresa”. 
+Se cliente é do tipo “pessoa”, ele tem: 
+-- nome, string de 40 caracteres úteis 
+-- cpf, string de 14 caracteres úteis 
+-- rg, string de 14 caracteres úteis 
+-- sexo, char 
+-- data de nascimento, composto por dia, mês e ano 
+Se cliente é do tipo “empresa”, ele tem: 
+-- razão social, string de 50 caracteres úteis 
+-- cnpj, string de 18 caracteres úteis 
+-- inscrição estadual, string de 14 caracteres úteis 
+Todo cliente, seja ele “pessoa” ou “empresa”, tem um endereço, composto por: 
+-- logradouro (nome da rua, avenida, rodovia, etc e respectivo número) 
+-- complemento (indicativo do apartamento, casa ou equivalente) 
+-- bairro (nome do bairro) 
+-- cidade (nome da cidade) 
+-- cep (código e 8 dígitos numéricos) 
+-- estado (sigla com 2 caracteres alfabéticos maiúsculos) 
+Todo cliente tem um limite de crédito, que é um número real de precisão simples. 
+Todo cliente tem uma data de cadastramento, composta por dia, mês e ano. */
 
+#include <stdio.h>
 
 //definir os dois tipos de cliente
 enum tipoCliente
@@ -180,3 +207,4 @@ int main (void)
 	
 	return 0;
 }
+
