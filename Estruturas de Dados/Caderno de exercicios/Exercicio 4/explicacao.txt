@@ -1,1 +1,15 @@
-
+4. Um ponto geométrico é um objeto descrito por duas coordenadas no plano cartesiano: sua 
+ordenada (posição do ponto no eixo y) e sua abscissa (posição do ponto no eixo x). Neste 
+exercício você deverá considerar que ordenadas e abscissas de um ponto são números reais. 
+Faça uma implementação de TDA para suportar a representação de pontos geométricos e as 
+seguintes operações: 
+a) Operações fundamentais de qualquer TDA: inicialização, inclusão e exclusão de elementos 
+daquele tipo. 
+b) Quadrante de um ponto: para um ponto recebido como parâmetro a rotina retorna o inteiro 
+0 se o ponto corresponde à origem (y = 0 e x = 0); 1 se estiver no primeiro quadrante; 2 se 
+estiver no segundo quadrante; etc. Se o ponto estiver sobre o eixo y, retornar o valor 5; se 
+estiver sobre o eixo x, retornar 6.
+c) Distância entre dois pontos: a rotina recebe dois pontos como parâmetro e determina a 
+distância entre eles, conforme a figura 2.
+Faça depois um programa cliente que utiliza os recursos do TDA para determinar a distância 
+entre dois pontos geométricos quaisquer informados pelo usuário e os respectivos quadrantes de cada um.
