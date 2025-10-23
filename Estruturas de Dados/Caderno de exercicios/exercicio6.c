@@ -1,3 +1,29 @@
+/* Para se determinar o número de lâmpadas necessárias para cada cômodo de uma residência, 
+existem normas que dão o mínimo de potência de iluminação exigida por metro quadrado (m2) 
+conforme a utilização desse cômodo. Seja a seguinte tabela tomada como exemplo: 
+Utilização | Classe | Potência / m2
+-----------------------------------
+  Quarto   |    1   |     15 
+Sala de TV |    1   |     15 
+   Salas   |    2   |     18 
+ Cozinha   |    2   |     18 
+ Varandas  |    2   |     18 
+Escritório |    3   |     20 
+ Banheiro  |    3   |     20
+ ---------------------------------
+Faça um programa que recebe e armazena em uma lista encadeada o nome do cômodo, a 
+largura, o comprimento, a classe e a potência por m2 requerida. Exiba o conteúdo da lista. 
+Depois, em um looping, receba do usuário qual a potência das lâmpadas a serem usadas e 
+determine: 
+a) Para cada cômodo: 
+a.1. O cômodo; 
+a.5. A área do cômodo; 
+a.6. Número de lâmpadas necessárias. 
+b) Para toda a residência: 
+b.1. Total de lâmpadas; 
+b.2. Total de potência requerida. 
+Encerrar o programa quando o usuário informar uma potência de lâmpada ≤ 0. */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -160,4 +186,5 @@ void calculaLampadas(lista *l, float potLampada)
 	
 	printf ("\nPotencia total: %.3f", potTotal);
 	printf ("\nQuantidade total de lampadas: %d", totalLampadas);
+
 }
