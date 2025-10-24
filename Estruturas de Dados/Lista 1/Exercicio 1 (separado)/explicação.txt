@@ -1,0 +1,22 @@
+Com base no programa criado em aula, que implementa uma lista linear de números 
+por encadeamento, crie uma versão para manipular uma lista de compras com 
+encadeamento duplo. Cada item da lista possui um nome do produto (string que pode 
+ter até 25 caracteres úteis), uma quantidade a ser comprada (um número do tipo 
+float) e um indicador se o produto já foi comprado ou não (um inteiro, onde o valor 
+zero indica que ainda não foi comprado e 1 indica que já foi comprado). O programa 
+deverá receber várias entradas indicando a operação (“I” para inclusão de item na lista, 
+“A” para atualização do item, “P” para impressão da lista e “X” para exclusão de item) e 
+os seus detalhes, conforme o exemplo a seguir. Se a operação for de inclusão, receber o 
+nome do produto e a quantidade. Inserir o novo item respeitando a ordem alfabética 
+dos produtos da lista e colocando 0 no membro que indica se o produto já foi comprado. 
+Caso a inclusão falhe, não interromper a execução do programa, apenas emitir 
+mensagem apropriada. Se a operação for de atualização, receber o nome do produto e 
+colocar um valor 1 no membro que indica se aquele item já foi comprado. Se for uma 
+operação de exclusão, receber o nome do produto a ser excluído. Se for uma operação 
+de impressão, receber o sentido da impressão: “F” indica impressão do início para o 
+final e “R” indica impressão do final para o início. Imprimir a sequência de itens e, em 
+seguida, as quantidades totais de itens e de itens já comprados. Encerrar o 
+processamento quando for indicada uma operação “*”. Utilize um descritor da lista 
+contendo o início da lista, o seu final e a quantidade total de itens e a quantidade de 
+itens já comprados. Separe a aplicação com um arquivo fonte para a parte cliente, um 
+arquivo fonte para a implementação e um arquivo header. 
