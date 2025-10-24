@@ -1,3 +1,19 @@
+/*Um programa escrito em C constrói duas listas encadeadas simples utilizando os 
+valores digitados pelo usuário. A primeira lista é referenciada pelo descritor lst1 e a 
+segunda lista é referenciada pelo descritor lst2. Escreva uma rotina que constrói uma 
+terceira lista, referenciada pelo descritor lst3, cujo conteúdo é a concatenação das 
+duas primeiras listas, ou seja, uma lista cujos elementos iniciais provêm da segunda 
+lista, e após estes, os elementos da primeira lista, conforme o exemplo abaixo. Após 
+criar a terceira lista, destruir as listas 1 e 2 e imprimir o conteúdo da nova lista por 
+meio de uma subrotina. Considere as definições de tipos de dados e variáveis abaixo, 
+que foram feitas fora da rotina main() do programa. Para destruir uma lista utilize uma 
+subrotina que desaloca todos os seus itens da memória e reinicializa seus descritores. 
+struct elemento {float valor ; struct elemento* prox ;}; 
+typedef struct elemento TElemento; 
+typedef struct {TElemento *inicio, *final; int qtde;} TLista;
+TLista lst1, lst2, lst3; 
+float vrdig = 0; */
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -159,3 +175,4 @@ void ImprimeLista (TLista *lista)
 		printf ("\nQuantidade : %d", lista->qtde);
 	}
 }
+
