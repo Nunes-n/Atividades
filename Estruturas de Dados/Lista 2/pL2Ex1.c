@@ -1,7 +1,3 @@
-/*
-	Programa que manipula árvore binária ordenada de inteiros
-	Lista 2 exercicio 1
-*/
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -49,10 +45,12 @@ int main(void)
 
 		if (numero == -999) break;
 
-		if (PesquisaValor(raiz, numero) == NULL)
+		TNo *pesquisa = PesquisaValor(raiz, numero);
+		
+		if (pesquisa == NULL)
 			printf("Valor %d nao encontrado na arvore\n", numero);
 		else
-			printf("%d existe na arvore\n", numero);
+			ImprimeAncestrais(pesquisa);
 	}
 	
 	return 0;
@@ -127,7 +125,7 @@ int IncluiItem(TNo **r, int n)
 	aux->esq = NULL;
 	aux->qtde = 1;
 
-	/* Fazendo o encadeamento do novo noh */
+	/* Fazendo o encadeamento do novo nó */
 	pai = AchaPai(*r, n);
 	if (pai == NULL)
 	{
@@ -156,7 +154,15 @@ TNo *PesquisaValor(TNo *r, int n)
 		return PesquisaValor(r->dir, n);
 }
 
-void ImprimeAncestrais(TNo *r)
+void ImprimeAncestrais(TNo *p)
 {
-	
+	if (p->qtde > 1)
+		printf ("%d [%d] <- ", p->valor, p->qtde);
+	else
+		printf ("%d <- ", p->valor);
+
+	if (p->ancestral != NULL)
+		ImprimeAncestrais(p->ancestral);
+	else
+		printf ("raiz\n");
 }
