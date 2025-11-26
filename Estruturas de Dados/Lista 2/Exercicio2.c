@@ -44,7 +44,7 @@ int main(void)
 	}
 		
 	printf("\n\nConteudo da arvore\n");
-	// ImprimeArvoreNvl(raiz);
+	ImprimeArvoreNvl(raiz);
 	printf("Resumo\n");
 	printf("  Qtde nos: %3d\n", ContaNos(raiz));
 	printf("  Altura .: %3d\n", AlturaArv(raiz));
@@ -142,16 +142,27 @@ int ContaPares (TNo *r)
 
 int AlturaArv (TNo *r)
 {
+	int lvl = 0;
+	
 	if (r != NULL)
 	{
-		TNo *aux = r;
-		int lvl = 0;
 		while (aux->esq != NULL)
 		{
 			lvl++;
-			aux = aux->esq;
+			r = r->esq;
 		}
 		return lvl;
 	}
-	else return -1;
+	else return lvl;
+}
+
+void ImprimeArvoreNvl(TNo *r)
+{
+	printf ("Nivel Valores\n");
+	printf ("----------------------------------------\n");
+	
+	TNo *fila[QTDE_MAX], *aux;
+	int inicio, final, qtde;
+	int altura = AlturaArv(r);
+	
 }
