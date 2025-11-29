@@ -137,7 +137,7 @@ int ContaPares (TNo *r)
 		if (r->valor % 2 == 0)
 			return 1 + ContaPares(r->esq) + ContaPares(r->dir);
 		else
-			return 0 + ContaPares(r->esq) + ContaPares(r->dir);;
+			return 0 + ContaPares(r->esq) + ContaPares(r->dir);
 }
 
 int AlturaArv (TNo *r)
@@ -146,7 +146,7 @@ int AlturaArv (TNo *r)
 	
 	if (r != NULL)
 	{
-		while (aux->esq != NULL)
+		while (r->esq != NULL)
 		{
 			lvl++;
 			r = r->esq;
@@ -158,11 +158,50 @@ int AlturaArv (TNo *r)
 
 void ImprimeArvoreNvl(TNo *r)
 {
+	if (r == NULL)
+	{
+		printf ("arvore vazia\n\n");
+		return;
+	}
+
 	printf ("Nivel Valores\n");
-	printf ("----------------------------------------\n");
+	printf ("----------------------------------------");
 	
 	TNo *fila[QTDE_MAX], *aux;
-	int inicio, final, qtde;
-	int altura = AlturaArv(r);
+	int inicio = 0; //primeiro elemento da fila (quem sera removido)
+	int final = 0; //primeira posicao livre da fila (onde sera inserido o novo elemento)
+	int nivel = 0;
+
+	fila[final] = r;
+	final++;
+
+	while (inicio < final)
+	{
+		int qtdelvl = final - inicio; // quantidade que o nivel pode ter no maximo
+		printf ("\n%4d:	", nivel);
+
+		for (int i = 0; i < qtdelvl; i++)
+		{
+			aux = fila[inicio];
+			inicio++;
+			printf ("%d	", aux->valor);
+
+			if (aux->esq != NULL)
+			{
+				fila[final] = aux->esq;
+				final++;
+			}
+			if (aux->dir != NULL)
+			{
+				fila[final] = aux->dir;
+				final++;
+			}
+		}
+
+		nivel++;
+
+	}
+
+	printf("\n\n");
 	
 }
