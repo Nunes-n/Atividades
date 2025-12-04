@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-int emax(int[], int);
-int emin(int[], int);
+int emax(int[], int, int);
+int emin(int[], int, int);
 
 int main (void)
 {
@@ -10,11 +10,6 @@ int main (void)
 
     while (1)
     {
-        for (int i = 0; i < 26; i++)
-        {
-            lista[i] = 9999;
-        }
-
         printf ("quantidade de nos: ");
         if (scanf("%d", &qtde) == EOF)
             return 0;
@@ -27,7 +22,7 @@ int main (void)
         {
             for (int i = 1; i <= qtde; i++)
             {
-                printf ("\nvalor do no: ");
+                printf ("valor do no: ");
                 scanf ("%d", &valor);
                 if (valor < -1000 || valor > 1000)
                 {
@@ -40,12 +35,12 @@ int main (void)
                 }
             }
 
-            if (emax(lista, 1) == 0)
+            if (emax(lista, 1, qtde) == 0)
             {
                 printf ("max\n");
             }
             else
-                if (emin(lista, 1) == 0)
+                if (emin(lista, 1, qtde) == 0)
                 {
                     printf ("min\n");
                 }
@@ -60,92 +55,68 @@ int main (void)
     return 0;
 }
 
-int emax (int lista[], int n)
+int emax (int lista[], int n, int qtde)
 {
-    int filho1, filho2;
+    int filhoesq;
+    int filhodir;
 
-    if (lista[n * 2] != 9999 && lista[n * 2 + 1] != 9999)
+    if (n * 2 > qtde) //nao tem filhos
     {
-        if (lista[n] > lista[n * 2] && lista[n] > lista[n * 2 + 1])
-        {
-            filho1 = emax(lista, n * 2);
-            filho2 = emax(lista, n * 2 + 1);
-
-            if (filho1 == 0 && filho2 == 0)
-                return 0;
-            else return 1;
-        }
+        return 0;
     }
     else
-        if (lista[n * 2] != 9999)
+        if (n * 2 + 1 > qtde) //tem apenas o da esquerda
         {
             if (lista[n] > lista[n * 2])
             {
-                filho1 = emax(lista, n * 2);
+                return emax(lista, n * 2, qtde);
+            }
+            else return 1;
+        }
+        else //possui os dois filhos
+            if (lista[n] > lista[n * 2] && lista[n] > lista[n * 2 + 1])
+            {
+                filhoesq = emax(lista, n * 2, qtde);
+                filhodir = emax(lista, n * 2 + 1, qtde);
 
-                if (filho1 == 0)
+                if (filhoesq == 0 && filhodir == 0)
+                {
                     return 0;
+                }
                 else return 1;
             }
-        }
-        else
-            if (lista[n * 2 + 1] != 9999)
-            {
-                if (lista[n] > lista[n * 2 + 1])
-                {
-                    filho2 = emax(lista, n * 2 + 1);
-
-                    if (filho2 == 0)
-                        return 0;
-                    else return 1;
-                }
-            }
-            else return 0;
-
-/*
-    if (lista[n] > lista[n * 2] && lista[n] > lista[n * 2 + 1])
-    {
-        if (lista[n * 2] != 9999) //filho da esquerda
-            filho1 = emax(lista, n * 2);
-        else
-            filho1 = 0;
-
-        if (lista[n * 2 + 1] != 9999) //filho da direita
-            filho2 = emax(lista, n * 2 + 1);
-        else
-            filho2 = 0;
-
-
-        if (filho1 == 0 && filho2 == 0) 
-            return 0;
-        else
-            return 1;
-    }
-    else return 1;
-    */
+            else return 1;
 }
 
-int emin (int lista[], int n)
+int emin (int lista[], int n, int qtde)
 {
-    int filho1, filho2;
+    int filhoesq;
+    int filhodir;
 
-    if (lista[n] < lista[n * 2] && lista[n] < lista[n * 2 + 1])
+    if (n * 2 > qtde) //nao tem filhos
     {
-        if (lista[n * 2] != 9999) //filho da esquerda
-            filho1 = emin(lista, n * 2);
-        else
-            filho1 = 0;
-
-        if (lista[n * 2 + 1] != 9999) //dilho da direita
-            filho2 = emin(lista, n * 2 + 1);
-        else
-            filho2 = 0;
-
-
-        if (filho1 == 0 && filho2 == 0)
-            return 0;
-        else
-            return 1;
+        return 0;
     }
-    else return 1;
+    else
+        if (n * 2 + 1 > qtde) //tem apenas o da esquerda
+        {
+            if (lista[n] < lista[n * 2])
+            {
+                return emin(lista, n * 2, qtde);
+            }
+            else return 1;
+        }
+        else //possui os dois filhos
+            if (lista[n] < lista[n * 2] && lista[n] < lista[n * 2 + 1])
+            {
+                filhoesq = emin(lista, n * 2, qtde);
+                filhodir = emin(lista, n * 2 + 1, qtde);
+
+                if (filhoesq == 0 && filhodir == 0)
+                {
+                    return 0;
+                }
+                else return 1;
+            }
+            else return 1;
 }
