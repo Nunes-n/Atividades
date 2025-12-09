@@ -101,6 +101,7 @@ void selectionPrint (int lista[], int qtde)
     for (int i = 0; i < qtde; i++)
     {
         int menor = lista[i];
+        menorvt = i;
 
         for (int j = i; j < qtde; j++)
         {
