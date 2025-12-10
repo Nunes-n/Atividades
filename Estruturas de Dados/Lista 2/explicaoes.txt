@@ -1,1 +1,50 @@
 
+1) Com base no programa pL2Ex1.c disponibilizado pelo professor, que implementa uma
+árvore binária de pesquisa de inteiros, acrescente as funcionalidades indicadas nos
+itens a) e b).
+a) Modifique a estrutura da árvore para que não seja possível que vários nós possuam
+o mesmo valor. Para isso será necessário armazenar em cada nó a quantidade de
+ocorrências daquele valor. Assim, quando um valor é informado pela primeira vez,
+cria-se o nó com o valor e quantidade igual a 1. Caso um valor seja informado
+novamente, deve-se apenas incrementar o membro de quantidade do nó
+correspondente. Adaptar a rotina de impressão da árvore para exibir a quantidade
+de ocorrências daquele valor, caso seja maior do que 1.
+b) Adaptar a estrutura da árvore para que também armazene o endereço do ancestral
+imediato do nó. Quando um nó for inserido na árvore, colocar no membro
+correspondente o endereço do ancestral direto ou nulo, caso seja o nó raiz geral da
+árvore. Em seguida adaptar a pesquisa para que, caso o valor pesquisado seja
+encontrado, exibir seu valor e também o de todos os seus ancestrais.
+
+2) Com base no programa pL2Ex2.c disponibilizado pelo professor, que implementa uma
+árvore binária de números preenchida por níveis, acrescente as funcionalidades
+indicadas nos itens de a) até e).
+a) Criar a função PesquisaValor() invocada no segundo looping. Essa função recebe
+o ponteiro para um nó da árvore e um valor a ser procurado e retorna TRUE se a
+pesquisa for bem sucedida e FALSE em caso contrário. Considere que a árvore
+produzida no programa não será necessariamente ordenada, já que a inclusão não
+garante essa característica.
+b) Escrever a função ContaNos(), que recebe um ponteiro para a raiz da árvore e
+retorna um inteiro indicando quantos nós existem nela.
+c) Escrever a função ContaPares(), que recebe um ponteiro para a raiz da árvore e
+retorna um inteiro indicando quantos nós possuem um valor par.
+d) Escrever a função AlturaArv(), que recebe um ponteiro para a raiz da árvore e
+retorna um inteiro indicando sua altura.
+e) Escreva a função ImprimeArvNvl() que é chamada após a inclusão, recebe a raiz da
+árvore e faz a impressão de todos os seus nós por níveis, conforme o layout do
+exemplo.
+
+3) Seu objetivo neste problema é determinar se uma árvore binária completa informada é um
+Max-Heap, um Min-Heap ou nenhum dos dois.
+
+--Entrada
+A entrada consiste de vários casos de teste. Cada caso é dado em uma linha da entrada
+iniciada por um inteiro N (2 ≤ N ≤ 25) que indica a quantidade de nós da árvore binária.
+Seguem-se então N inteiros V (-1000 ≤ V ≤ 1000) correspondentes aos nós da árvore,
+apresentados a partir da raiz e, em cada nível, os nós são apresentados da esquerda para a
+direita. Considere que não serão informadas árvores com todos os seus valores iguais. O
+conjunto de entradas deve ser lido até a condição de fim de arquivo ser atingida.
+
+--Saída
+Caso a árvore lida em um caso de teste seja um Max-Heap, imprimir a string ‘max’ (em
+minúsculas); caso seja um Min-Heap, imprimir ‘min’ (em minúsculas) e caso a árvore lida
+não seja nem um Max-Heap nem um Min-Heap, imprimir ‘nada’ (em minúsculas).
