@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "EX1Hea.h"
+#include "Ex1Header.h"
 
 TLista lista;
 
@@ -80,3 +80,4 @@ int main(void)
 	
 	return 0;
 }
+
