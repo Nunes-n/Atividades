@@ -51,10 +51,26 @@ void maxheap (int *arv, int n)
 void imprimeArvoreC (int *arv)
 {
     int i = 1;
+    int qtdelvl = 1;
+    int lvl = 0;
 
-    while (arv[i] != -9999)
+    while (1)
     {
-        printf ("%d ", arv[i]);
-        i++;
+        if (arv[i] == -9999)
+            break;
+        else
+            printf ("nivel %d: ", lvl);
+
+        for (int j = 0; j < qtdelvl; j++)
+        {
+            if (arv[i] != -9999)
+            {
+                printf ("%d ", arv[i]);
+            }
+            i++;
+        }
+        printf ("\n");
+        qtdelvl = qtdelvl * 2;
+        lvl++;
     }
 }
