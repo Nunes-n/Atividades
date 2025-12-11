@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "EX1Hea.h"
+#include "Ex1Header.h"
 
 void iniciaLista (TLista *lista)
 {
@@ -211,3 +211,4 @@ void EncerraPrograma(TLista *lista)
 	
 	printf ("\nFim do programa (%d itens sem comprar)", itensF);
 }
+
