@@ -1,18 +1,38 @@
+/*
+    programa onde você escolhe o tipo de heap e, conforme vai inserindo os nós
+    a árvore vai se atualizando de acordo com o heap escolhido.
+    a impressão e inserção é por niveis.
+*/
+
 #include <stdio.h>
 #define MAX 100
 
+void minheap(int *, int);
 void maxheap(int *, int);
 void imprimeArvoreC (int*);
 
 int main (void)
 {
     int arvore[MAX];
-    for (int j = 1; j <= MAX; j++)
-        arvore[j] = -9999;
     int valor;
     int i = 1;
+    char tipoheap;
 
-    printf ("[-9999] para encerrar\n\n");
+    for (int j = 1; j <= MAX; j++)
+        arvore[j] = -9999;
+
+
+    while (1)
+    {
+        printf ("[m] = max heap\n[n] = min heap\n");
+        scanf (" %c", &tipoheap);
+        if ((tipoheap == 'm' || tipoheap == 'M') || (tipoheap == 'n' || tipoheap == 'N'))
+            break;
+        else
+            printf ("tipo invalidp\n");
+    }
+
+    printf ("\n[-9999] para encerrar\n\n");
 
     while (i < MAX)
     {
@@ -24,7 +44,12 @@ int main (void)
         else
         {
             arvore[i] = valor;
-            maxheap(arvore, i);
+
+            if (tipoheap == 'm' || tipoheap == 'M')
+                maxheap(arvore, i);
+            else
+                minheap(arvore, i);
+
             imprimeArvoreC(arvore);
             printf ("\n");
         }
@@ -40,6 +65,19 @@ void maxheap (int *arv, int n)
     int f = n;
 
     while (f > 1 /*nao é a raiz*/ && arv[f / 2] /*pai*/ < arv[f] /*filho*/)
+    {
+        int aux = arv[f / 2];
+        arv[f / 2] = arv[f];
+        arv[f] = aux;
+        f = f / 2;
+    }
+}
+
+void minheap (int *arv, int n)
+{
+    int f = n;
+
+    while (f > 1 /*nao é a raiz*/ && arv[f / 2] /*pai*/ > arv[f] /*filho*/)
     {
         int aux = arv[f / 2];
         arv[f / 2] = arv[f];
@@ -70,7 +108,7 @@ void imprimeArvoreC (int *arv)
             i++;
         }
         printf ("\n");
-        qtdelvl = qtdelvl * 2;
         lvl++;
+        qtdelvl = qtdelvl * 2;
     }
 }
