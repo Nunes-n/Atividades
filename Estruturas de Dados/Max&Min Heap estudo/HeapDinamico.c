@@ -1,5 +1,5 @@
 /*
-    programa onde você escolhe o tipo de heap e, conforme vai inserindo os nós
+    programa onde você escolhe o tipo de heap e, conforme vai inserindo os nós,
     a árvore vai se atualizando de acordo com o heap escolhido.
     a impressão e inserção é por niveis.
 */
