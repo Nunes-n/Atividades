@@ -2,7 +2,7 @@
 #include <unistd.h>
 
 void espaco();
-void imprimeLista(int[], int, int);
+void imprimeLista(int[], int, int, int);
 void bubblePrint(int[], int);
 void selectionPrint(int[], int);
 
@@ -35,7 +35,7 @@ int main (void)
     }
 
     printf ("\nconteudo da lista atual\n");
-    imprimeLista(lista, tamanho, 17);
+    imprimeLista(lista, tamanho, 17, 17);
 
     printf ("[b] = bubble sort\n");
     printf ("[s] = selection sort\n");
@@ -53,7 +53,7 @@ int main (void)
     return 0;
 }
 
-void imprimeLista (int lista[], int qtde, int vetor)
+void imprimeLista (int lista[], int qtde, int vetor, int menor)
 {
     for (int i = 0; i < qtde; i++)
     {
@@ -62,8 +62,13 @@ void imprimeLista (int lista[], int qtde, int vetor)
         {
             printf ("|");
         }
+
+        if (menor == i)
+            printf ("#");
+
         if (vetor == i)
             printf (" <");
+
         printf ("\n");
     }
     printf ("\n");
@@ -79,7 +84,7 @@ void bubblePrint (int lista[], int qtde)
         {
             //impressao
             espaco();
-            imprimeLista(lista, qtde, j);
+            imprimeLista(lista, qtde, j, 17);
 
             if (lista[j] >= lista[j + 1])
             {
@@ -91,7 +96,7 @@ void bubblePrint (int lista[], int qtde)
     }
 
     espaco();
-    imprimeLista(lista, qtde, 17);
+    imprimeLista(lista, qtde, 17, 17);
 }
 
 void selectionPrint (int lista[], int qtde)
@@ -112,7 +117,7 @@ void selectionPrint (int lista[], int qtde)
             }
 
             espaco();
-            imprimeLista(lista, qtde, j);
+            imprimeLista(lista, qtde, j, menorvt);
         }
 
         aux = lista[i];
@@ -121,7 +126,7 @@ void selectionPrint (int lista[], int qtde)
     }
 
     espaco();
-    imprimeLista(lista, qtde, 17);
+    imprimeLista(lista, qtde, 17, 17);
 }
 
 void espaco()
@@ -129,3 +134,4 @@ void espaco()
     sleep(1);
     printf ("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 }
+
