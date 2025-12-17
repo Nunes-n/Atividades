@@ -1,3 +1,8 @@
+/*
+    b) Recebe uma string contendo a descrição textual de uma árvore em pre-order e constrói a
+árvore correspondente, imprimindo-a e exibindo a sua altura e quantidade de elementos.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
