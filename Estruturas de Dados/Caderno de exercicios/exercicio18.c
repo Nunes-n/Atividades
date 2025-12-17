@@ -1,3 +1,10 @@
+/*
+    Escreva uma rotina para determinar a quantidade total de espaço em bytes ocupada por uma
+árvore. A rotina deverá receber como parâmetro o ponteiro para a raiz da árvore e retornar um
+inteiro correspondente à quantidade total de bytes que a árvore ocupa no momento. Considere
+que os nós da árvore possuem o mesmo tipo utilizado no programa criado durante as aulas.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
