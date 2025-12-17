@@ -1,3 +1,11 @@
+/*
+    Dadas duas árvores binárias A e B, diz-se que A eq B (lê-se A é equivalente a B) se:
+a) Ambas são vazias, ou
+b) info(raiz(A)) = info(raiz(B)) e esq(A) eq esq(B) e dir(A) eq dir(B)
+Faça um programa que permite montar duas árvores binárias ordenadas e determinar se elas
+são ou não equivalentes.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
