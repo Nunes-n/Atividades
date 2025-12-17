@@ -1,3 +1,8 @@
+/*
+    a) Recebe uma sequência de inteiros e monta a árvore binária ordenada correspondente. Em
+seguida exibir a descrição da árvore na notação textual indicada anteriormente.
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
