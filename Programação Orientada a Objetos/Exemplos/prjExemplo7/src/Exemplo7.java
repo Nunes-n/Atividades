@@ -1,7 +1,3 @@
-/**
- *
- * @author 0030482421002
- */
 public class Exemplo7 {
     public static void main(String[] args) {
         int[] tabNum; //declaração
@@ -20,3 +16,4 @@ public class Exemplo7 {
     }
     
 }
+
