@@ -1,7 +1,3 @@
-/**
- *
- * @author 0030482421002
- */
 public class Exemplo6 {
     public static void main(String[] args) {
         int cont, num;
@@ -15,3 +11,4 @@ public class Exemplo6 {
         } while (cont <= 10);
     }
 }
+
