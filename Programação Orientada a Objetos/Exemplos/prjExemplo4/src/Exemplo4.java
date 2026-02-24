@@ -1,7 +1,3 @@
-/**
- *
- * @author 0030482421002
- */
 public class Exemplo4 {
     public static void main(String[] args) {
         int cont, num;
@@ -13,3 +9,4 @@ public class Exemplo4 {
         }
     }
 }
+
