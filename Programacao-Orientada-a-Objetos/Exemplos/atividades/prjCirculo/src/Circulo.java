@@ -19,4 +19,7 @@ public class Circulo {
     public double calcPerimetro(){
         return 2 * Math.PI * raio;
     }
+    public double calcDiametro(){
+        return 2 * raio;
+    }
 }

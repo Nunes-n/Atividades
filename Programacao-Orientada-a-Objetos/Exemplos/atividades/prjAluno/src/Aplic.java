@@ -35,17 +35,36 @@ public class Aplic {
         ntTrab2 = entrada.nextDouble();
         objAl.setNtTrab2(ntTrab2);
         
-        System.out.println("\n----------------");
+        int escolha;
         
-        System.out.println("RA: " + objAl.getRA());
-        System.out.println("Nota da prova 1: " + objAl.getNtPrv1());
-        System.out.println("Nota da prova 2: " + objAl.getNtPrv2());
-        System.out.println("Nota do trabalho 1: " + objAl.getNtTrab1());
-        System.out.println("Nota do trabalho 2: " + objAl.getNtTrab2() + "\n");
-        
-        System.out.println("Média da nota das provas: " + objAl.calcMediaProva());
-        System.out.println("Média da nota dos trabalhos: " + objAl.calcMediaTrab());
-        System.out.println("Média final: " + objAl.calcMediaFInal());
+        do{
+            System.out.println("\n\n----------------");
+            
+            System.out.println("1 - Exibir Nota das Provas/Trabalhos");
+            System.out.println("2 - Exibir Média dos Trabalhos/Provas");
+            System.out.println("3 - Exibir Média Final");
+            System.out.println("4 - Sair");
+            
+            escolha = entrada.nextInt();
+            
+            if (escolha == 1){
+                System.out.println("Nota da prova 1: " + objAl.getNtPrv1());
+                System.out.println("Nota da prova 2: " + objAl.getNtPrv2());
+                System.out.println("Nota do trabalho 1: " + objAl.getNtTrab1());
+                System.out.println("Nota do trabalho 2: " + objAl.getNtTrab2());
+            }
+            if (escolha == 2){
+                System.out.println("Média da nota das provas: " + objAl.calcMediaProva());
+                System.out.println("Média da nota dos trabalhos: " + objAl.calcMediaTrab());
+            }
+            if (escolha == 3){
+                System.out.println("Média final: " + objAl.calcMediaFInal());
+            }
+            if (escolha > 4 || escolha < 1){
+                System.out.println("escolha inválida");
+            }
+            
+        }while(escolha != 4);
     }
     
 }
