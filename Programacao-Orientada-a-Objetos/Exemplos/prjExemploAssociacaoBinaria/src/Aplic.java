@@ -30,6 +30,23 @@ public class Aplic {
         System.out.println("O funcionario mensalista " + funcMen.getNome() + " trabalha no departamento de "
                              + funcMen.getDepartamento().getNome());
         
+        
+        Departamento dep2 = new Departamento("RH","RecursosHumanos");
+        
+        funcCom.setDepartamento(dep2);
+        
+        System.out.println("o funcionario comissionado " + funcCom.getNome() + " trabalha no departamento de "
+                            + funcCom.getDepartamento().getNome());
+        
+        
+        
+        //estabelecendo a ligação entre um objeto da classe Departamento com objetos da classe
+        //FuncionarioHorista, FuncionarioMensalista e FuncionarioComissionado
+        dep1.addFuncionario(funcHor);
+        dep1.addFuncionario(funcMen);
+        dep2.addFuncionario(funcCom);
+        dep1.listarFuncionarios();
+        dep2.listarFuncionarios();
     }
     
 }
