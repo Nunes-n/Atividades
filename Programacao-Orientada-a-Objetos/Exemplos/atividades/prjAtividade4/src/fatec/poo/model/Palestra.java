@@ -5,10 +5,14 @@ public class Palestra {
     private String tema;
     private double valor;
     private Palestrante palestrante;
+    private Participante participantes[];
+    private int numParticipantes;
     
     public Palestra(String tema, double valor){
         this.tema = tema;
         this.valor = valor;
+        
+        participantes = new Participante[5];
     }
     
     public void setData(String data){
@@ -16,6 +20,10 @@ public class Palestra {
     }
     public void setPalestrante(Palestrante palestrante) {
         this.palestrante = palestrante;
+    }
+    public void addParticipante(Participante participantes){
+        this.participantes[numParticipantes] = participantes;
+        numParticipantes++;
     }
     
     public String getData() {
@@ -30,7 +38,9 @@ public class Palestra {
     public Palestrante getPalestrante() {
         return palestrante;
     }
-    
+    public Participante getParticipante(){
+        return participantes[numParticipantes];
+    }
     
     public double calcTotalFaturado(){
         return 0;

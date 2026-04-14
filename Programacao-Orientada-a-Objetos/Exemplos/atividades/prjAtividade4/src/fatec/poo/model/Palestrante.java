@@ -11,7 +11,7 @@ public class Palestrante extends Pessoa{
         
         this.empresa = empresa;
         
-        palestra = new Palestra[2];
+        palestra = new Palestra[5];
     }
 
     public void setTaxaCobranca(double taxaCobranca) {
@@ -27,6 +27,9 @@ public class Palestrante extends Pessoa{
     }
     public double getTaxaCobranca() {
         return taxaCobranca;
+    }
+    public Palestra getPalestra(){
+        return palestra[numPalestra];
     }
     
     public double calcTotalReceberPalestras(){
