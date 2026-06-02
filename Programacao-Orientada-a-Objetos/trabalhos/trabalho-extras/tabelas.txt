@@ -1,0 +1,18 @@
+create table tblHotel (
+    Codigo_Hot NUMBER(6,0) PRIMARY KEY,
+    Nome_Hot varchar2(30),
+    Endereco_Hot varchar2(40),
+    Telefone_Hot varchar2(20),
+    ValorDiaria_Hot NUMBER(6,2),
+    TotalFaturamento_Hot NUMBER(6,2)
+);
+
+create table tblReserva (
+    Codigo_Res NUMBER(6,0) PRIMARY KEY,
+    NomeHosp_Res varchar2(30),
+    DataEntrada_Res varchar2(10),
+    DataSaida_Res varchar2(10),
+    ValorHosped_Res NUMBER(6,2),
+    Codigo_Hot NUMBER(6,0),
+    CONSTRAINT fk_hotel FOREIGN KEY (Codigo_Hot) REFERENCES tblHotel(Codigo_Hot)
+);
